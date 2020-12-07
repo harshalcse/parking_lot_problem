@@ -81,67 +81,6 @@ let status = async () => {
 
 }
 
-
-let getRegistrationNumbersFromColor = async (color) => {
-
-    if (maxSize === 0) {
-        return "parking lot is not initiated";
-    } else if (Car.length > 0) {
-        let resultSet = [];
-        Car.forEach(function (row) {
-            if (row.color === color) {
-                resultSet.push(row.registratonNo);
-            }
-        });
-
-        let finalResponse = '';
-        if (resultSet === undefined) return `Not found`;
-        for (let i = 0; i < resultSet.length; i++) {
-            if (!(i == resultSet.length - 1)) {
-                finalResponse += resultSet[i] + ","
-            } else {
-                finalResponse += resultSet[i];
-            }
-        }
-        return finalResponse;
-
-    } else {
-        return `Not found`
-    }
-
-}
-
-
-let getSlotNumbersFromColor = async (color) => {
-    if (maxSize === 0) {
-        return "parking lot is not initiated";
-    } else if (Car.length > 0) {
-        let resultSet = [];
-
-        Car.forEach(function (row) {
-            if (row.color === color) {
-                resultSet.push(row.slot);
-            }
-        });
-
-        let finalResponse = '';
-        if (resultSet === undefined) return `Not found`;
-
-        for (let i = 0; i < resultSet.length; i++) {
-            if (!(i == resultSet.length - 1)) {
-                finalResponse += resultSet[i] + ","
-            } else {
-                finalResponse += resultSet[i];
-            }
-        }
-        return finalResponse;
-
-    } else {
-        return `Not found`
-    }
-}
-
-
 let getSlotNumberFromRegNo = async (registratonNo) => {
     if (maxSize === 0) {
         return "parking lot is not initiated";
